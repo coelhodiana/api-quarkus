@@ -1,0 +1,35 @@
+mvn quarkus:list-extensions
+
+mvn quarkus:add-extension -Dextensios="hibernate-validator"
+
+mvn quarkus:add-extensions -Dextensions="jdbc-h2,hibernate-orm,hibernate-orm-panache,resteasy-jsonb"
+
+mvn compile quarkus:dev
+
+
+brew install postgresql@15
+
+Verificar se o postgre está rodando corretamente
+brew services start postgresql@15
+
+verificar a versão do postgre
+psql --version
+
+Encontre o caminho correto do PostgreSQL
+brew --prefix postgresql@15
+
+Adicione o caminho ao .zshrc
+nano ~/.zshrc
+
+Adicione a seguinte linha ao final do arquivo com o caminho da variável que está adicionando:
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+Att o shell
+source ~/.zshrc
+
+verificar versão do postgre
+psql --version
+
+Conectar ao potgres pelo terminal
+psql postgres
+
