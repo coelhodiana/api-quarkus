@@ -33,3 +33,15 @@ psql --version
 Conectar ao potgres pelo terminal
 psql postgres
 
+empacotar a app para deploy
+mvn clean package -DskipTests
+
+executar o jar
+java -jar ./target/quarkus-app/quarkus-run.jar
+
+docker ps
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus/quarkus-social-jvm .
+docker run -i --rm -p 8080:8080 --name quarkus-social-container  quarkus-social:1.0
+docker run -i --rm -p 8081:8080 --name quarkus-social-h2 quarkus-social:1.1
+
+docker stop <nome ou id do container>
